@@ -4,6 +4,7 @@ pipeline{
 
   tools{
     jdk 'jdk21'
+    }
 
  stages{
   stage('checkout'){

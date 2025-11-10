@@ -1,0 +1,28 @@
+pipeline{
+  agent any
+}
+
+  tools{
+    jdk 'jdk21'
+
+ stages{
+  stage('checkout'){
+    steps{ 
+    git branch:'main',url:'https://github.com/chandanamanchala/jenkin_demo'
+    }
+}
+  stage('compile')
+  {
+    steps{
+      echo 'compling java programs..'
+      sh 'javac helloworld.java'
+    }
+  }
+  stage('Run'){
+    steps{
+      echo'Running java program...'
+      sh 'java helloworld'
+}
+}
+}
+  

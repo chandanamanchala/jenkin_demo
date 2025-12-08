@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    // Pull code from SCM (Git)
+    
     stages {
         stage('Checkout') {
             steps {

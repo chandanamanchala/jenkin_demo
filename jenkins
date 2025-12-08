@@ -1,22 +1,35 @@
-pipeline{
-  agent any
- stages{
-  stage('checkout'){
-    steps{ 
-    git branch:'main',url:'https://github.com/chandanamanchala/jenkin_demo'
+pipeline {
+    agent any
+
+    // Pull code from SCM (Git)
+    stages {
+        stage('Checkout') {
+            steps {
+                // If Jenkins job is already configured with Git SCM,
+                // this automatically checks out the code
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building project..."
+                sh 'echo build commands here'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+                sh 'echo test commands here'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying..."
+                sh 'echo deploy commands here'
+            }
+        }
     }
 }
-  stage('compile')
-  {
-    steps{
-      echo 'compling java programs..'
-      sh 'javac helloworld.java'
-    }
-  }
-  stage('Run'){
-    steps{
-      echo'Running java program...'
-      sh 'java helloworld'
-}
-}
-}  

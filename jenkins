@@ -5,8 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // If Jenkins job is already configured with Git SCM,
-                // this automatically checks out the code
+               
                 checkout scm
             }
         }
